@@ -17,7 +17,7 @@ git clone --recurse-submodules https://github.com/durgabhavaniv/Face_Reid_Survei
 cd Face_Reid_Surveillance_System
 ```
 
-# VCK500 setup 
+# VCK5000 setup 
  - Download file from, https://drive.google.com/file/d/1xWxEdDMdU9_s1dtIZl1qdosU5iDTrrDj/view?usp=sharing, and follow below commads
 
 ```bash
