@@ -1,0 +1,2 @@
+7a1d470f236a3dbc75d00ba094471c2f  reid.prototxt
+0af24f2e6b5e875ff54413a34a62687c  reid.xmodel
