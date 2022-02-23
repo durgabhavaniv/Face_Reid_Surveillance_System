@@ -10,6 +10,13 @@ Near Real-Time Face-reIdentification Surveillance System
 docker pull xilinx/vitis-ai:1.4.1.978 
 ```
 
+# Clone this repository
+```bash
+git clone --recurse-submodules https://github.com/durgabhavaniv/Face_Reid_Surveillance_System.git
+
+cd Face_Reid_Surveillance_System
+```
+
 # VCK500 setup 
  - Download file from, https://drive.google.com/file/d/1xWxEdDMdU9_s1dtIZl1qdosU5iDTrrDj/view?usp=sharing, and follow below commads
 
@@ -33,15 +40,10 @@ cd ~/Face_Reid_Surveillance_System/setup/vck5000
 source ./install.sh
 ```
 
-# Clone this repository
-```bash
-git clone --recurse-submodules https://github.com/durgabhavaniv/Face_Reid_Surveillance_System.git
-
-cd Face_Reid_Surveillance_System
-```
-
 # Run docker
-```
+```bash
+cd Face_Reid_Surveillance_System
+
 ./docker_run.sh xilinx/vitis-ai:1.4.1.978
 ```
 
