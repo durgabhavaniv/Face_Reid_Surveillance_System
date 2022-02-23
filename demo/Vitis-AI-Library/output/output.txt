@@ -47,3 +47,11 @@ Camera2,23,kamal
 Camera2,25,kamal
 Camera2,34,vijaya
 Camera2,40,kumari
+Camera1,14,vijaya
+Camera1,21,kumari
+Camera1,22,kumari
+Camera1,3,kamal
+Camera1,14,vijaya
+Camera1,21,kumari
+Camera1,22,kumari
+Camera1,3,kamal

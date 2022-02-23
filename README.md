@@ -10,18 +10,34 @@ Near Real-Time Face-reIdentification Surveillance System
 docker pull xilinx/vitis-ai:1.4.1.978 
 ```
 
+# VCK500 setup 
+ - Download file from, https://drive.google.com/file/d/1xWxEdDMdU9_s1dtIZl1qdosU5iDTrrDj/view?usp=sharing, and follow below commads
+
+```bash
+tar -xzvf vck5000_setup.tar.gz
+
+cd ~/vck5000_setup
+
+sudo apt-get insall ./xrt_202020.2.9.317_20.04-amd64-xrt.deb
+
+cd ./xilinx-vck5000-es1-gen3x16-platform-2-1_all.deb/
+
+sudo apt-get install ./xilinx-*
+
+cd ..
+
+sudo apt-get install ./xilinx-vck5000-es1-gen3x16-2-202020-1-dev_1-3123623_all.deb
+
+cd ~/Face_Reid_Surveillance_System/setup/vck5000
+
+source ./install.sh
+```
+
 # Clone this repository
 ```bash
 git clone --recurse-submodules https://github.com/durgabhavaniv/Face_Reid_Surveillance_System.git
 
 cd Face_Reid_Surveillance_System
-```
-
-# Initial setup outside docker
-```bash
-cd ~/Face_Reid_Surveillance_System/setup/vck5000
-
-source ./install.sh
 ```
 
 # Run docker
@@ -64,3 +80,20 @@ sudo cp densebox_640_360 /usr/share/vitis_ai_library/models -r
 # Results
  - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output this directory givens the deetcted faces results.
  - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output/output.txt gives results of tracking of person faces with respect to camera number and time.
+
+# Rebuilding face reidentification.
+```bash
+cd /workspace/demo/Vitis-AI-Library/samples/reid
+
+bash -x build.sh
+
+cd /workspace/demo/Vitis-AI-Library/samples/facedetect
+
+sudo cp ./demo.hpp /usr/include/vitis/ai/demo.hpp
+
+bash -x build.sh
+```
+
+# System requirements
+ - os version - Ubuntu 20.04 LTS
+ - kernel version - 5.4.0-52-generic
