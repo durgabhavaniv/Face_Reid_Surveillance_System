@@ -1,5 +1,11 @@
 # Face_Reid_Surveillance_System
-Near Real-Time Face-reIdentification Surveillance System
+
+Near Real-Time Face-reIdentification Surveillance System Pipeline
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/pipeline.png">
+</div>
+
 
 # Install latest version of docker
  - [Install Docker](docs/install_docker/README.md) - if Docker not installed on your machine yet
@@ -18,7 +24,7 @@ cd Face_Reid_Surveillance_System
 ```
 
 # VCK5000 setup 
- - Download file from, https://drive.google.com/file/d/1xWxEdDMdU9_s1dtIZl1qdosU5iDTrrDj/view?usp=sharing, and follow below commads
+ - Download file from, https://drive.google.com/file/d/1XO2iDmesL0HDqrzxBKogVW06Bk1cJlWa/view?usp=sharing, and follow below commads
 
 ```bash
 tar -xzvf vck5000_setup.tar.gz
@@ -34,6 +40,8 @@ sudo apt-get install ./xilinx-*
 cd ..
 
 sudo apt-get install ./xilinx-vck5000-es1-gen3x16-2-202020-1-dev_1-3123623_all.deb
+
+sudo cp -a ./overlaybins /opt/xilinx/
 
 cd ~/Face_Reid_Surveillance_System/setup/vck5000
 
@@ -99,3 +107,7 @@ bash -x build.sh
 # System requirements
  - os version - Ubuntu 20.04 LTS
  - kernel version - 5.4.0-52-generic
+
+# Complete description of this project
+ - Use below link
+https://www.hackster.io/honeygo/near-real-time-face-reidentification-surveillance-system-d16eaf#toc-let-s-get-start-with-face-reidentification-surveillance-system-10

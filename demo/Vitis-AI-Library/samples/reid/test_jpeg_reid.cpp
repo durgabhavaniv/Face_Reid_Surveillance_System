@@ -131,9 +131,12 @@ int main(int argc, char* argv[]) {
       outfile << input << endl;
       // LOG(INFO) << file_without_extension_2 << "_" << file_without_extension_3;
     }
-    // else {
-    //   LOG(INFO) << argv[2] << " is not match with " << argv[3];
-    // }
+    else {
+      std::string input2 = file_without_extension_2;
+      std::ofstream outfile2;
+      outfile2.open("/workspace/demo/Vitis-AI-Library/output/output_rem.txt", std::ios_base::app); // append instead of overwrite
+      outfile2 << input2 << endl;
+    }
   }
   return 0;
 }
