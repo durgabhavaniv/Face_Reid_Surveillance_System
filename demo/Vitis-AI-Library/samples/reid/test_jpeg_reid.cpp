@@ -132,7 +132,7 @@ int main(int argc, char* argv[]) {
       // LOG(INFO) << file_without_extension_2 << "_" << file_without_extension_3;
     }
     else {
-      std::string input2 = file_without_extension_2;
+      std::string input2 = file_without_extension_2+ ",not," + file_without_extension_3;
       std::ofstream outfile2;
       outfile2.open("/workspace/demo/Vitis-AI-Library/output/output_rem.txt", std::ios_base::app); // append instead of overwrite
       outfile2 << input2 << endl;
