@@ -11,6 +11,9 @@ Near Real-Time Face-reIdentification Surveillance System Pipeline
  - [Install Docker](docs/install_docker/README.md) - if Docker not installed on your machine yet
  - [Ensure your linux user is in the group docker](https://docs.docker.com/install/linux/linux-postinstall/)
 
+# Install JAVA 11
+ - [Install openjdk 11](https://openjdk.java.net/projects/jdk/11/)
+
 # Download vitis-ai docker
 ```
 docker pull xilinx/vitis-ai:1.4.1.978 
@@ -24,14 +27,16 @@ cd Face_Reid_Surveillance_System
 ```
 
 # VCK5000 setup 
- - Download file from, https://drive.google.com/file/d/1XO2iDmesL0HDqrzxBKogVW06Bk1cJlWa/view?usp=sharing, and follow below commads
-
+ - Download file from, https://www.xilinx.com/member/vck5000.html#vitis, and follow below commads
+ - Download below files:
+   - xrt_202020.2.9.317_20.04-amd64-xrt.deb
+   - xilinx-vck5000-es1-gen3x16-platform-2-1_all.deb.tar.gz
+   - xilinx-vck5000-es1-gen3x16-2-202020-1-dev_1-3123623_all.deb
+ 
 ```bash
-tar -xzvf vck5000_setup.tar.gz
-
-cd ~/vck5000_setup
-
 sudo apt-get insall ./xrt_202020.2.9.317_20.04-amd64-xrt.deb
+
+tar -xzvf xilinx-vck5000-es1-gen3x16-platform-2-1_all.deb.tar.gz
 
 cd ./xilinx-vck5000-es1-gen3x16-platform-2-1_all.deb/
 
@@ -41,14 +46,12 @@ cd ..
 
 sudo apt-get install ./xilinx-vck5000-es1-gen3x16-2-202020-1-dev_1-3123623_all.deb
 
-sudo cp -a ./overlaybins /opt/xilinx/
-
 cd ~/Face_Reid_Surveillance_System/setup/vck5000
 
 source ./install.sh
 ```
 
-# Run docker
+# Run docker for VCK5000
 ```bash
 cd Face_Reid_Surveillance_System
 
@@ -79,19 +82,7 @@ cd /workspace/demo/Vitis-AI-Library/samples/facedetect
 sudo cp densebox_640_360 /usr/share/vitis_ai_library/models -r
 ```
 
-# Run person reidentification demo using following commads
-```bash
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Camera1.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Camera2.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Camera2.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Camera4.mp4 &
-```
-
-# Results
- - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output this directory givens the deetcted faces results.
- - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output/output.txt gives results of tracking of person faces with respect to camera number and time.
-
-# Rebuilding face reidentification.
+# Rebuilding face reidentification in your system incase of cpp binaries are not supported.
 ```bash
 cd /workspace/demo/Vitis-AI-Library/samples/reid
 
@@ -103,6 +94,54 @@ sudo cp ./demo.hpp /usr/include/vitis/ai/demo.hpp
 
 bash -x build.sh
 ```
+
+# Run person reidentification demo via CLI using following commads
+```bash
+./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Gate.mp4 &
+./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Hall_entry.mp4 &
+./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Room_entry.mp4 &
+./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Room_exit.mp4 &
+./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Hall_exit.mp4
+```
+
+# Results via CLI
+ - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output this directory givens the deetcted faces results.
+ - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output/output.txt gives results of tracking of person faces with respect to camera number and time.
+
+# Run person reidentification demo with frontend application and neo4j
+```bash
+./start_application.sh
+```
+
+## Page1 : video upload and video connections
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/image1.png">
+</div>
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/image2.png">
+</div>
+
+## Page2 : input videos validation
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/image3.png">
+</div>
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/image4.png">
+</div>
+
+## Page3 : search queries for processed output
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/image5.png">
+</div>
+
+<div align="center">
+  <img width="100%" height="100%" src="demo/images/image6.png">
+</div>
 
 # System requirements
  - os version - Ubuntu 20.04 LTS
