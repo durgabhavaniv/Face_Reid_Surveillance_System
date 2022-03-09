@@ -9,7 +9,6 @@ var1="$1"
 xbase=${var1##*/}
 path=${xbase%.*}
 # echo $path
-
 for filename in /workspace/demo/Vitis-AI-Library/output/$path*.jpg
 do
    # echo "$filename"

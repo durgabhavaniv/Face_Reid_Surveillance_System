@@ -29,7 +29,7 @@ cv::Mat process_result(cv::Mat &m1, const vitis::ai::FaceDetectResult &result,
   cv::Mat result_cmp;
   int CMP_EQ;
   int diff;
-  int cur_time = 0;
+  float cur_time = 0;
   cv::resize(m1, image, cv::Size{result.width, result.height});
   // LOG(INFO) << "Process_reusult" << file_without_extension;
   for (const auto &r : result.rects) {
@@ -62,7 +62,7 @@ cv::Mat process_result(cv::Mat &m1, const vitis::ai::FaceDetectResult &result,
       croppedFaceImage = image(image_save).clone();
       cv::resize(croppedFaceImage, croppedFaceImage,cv::Size(100,100));
       // cv::imshow("Img",croppedFaceImage);
-      cur_time = frameid / videofps;
+      cur_time = (frameid * 1.000) / videofps;
       std::string path = "/workspace/demo/Vitis-AI-Library/output/"+ file_without_extension + "," + std::to_string(cur_time) + ".jpg";
       // bool check = cv::imwrite(path,croppedFaceImage);
       // LOG(INFO) << check ;
@@ -86,7 +86,7 @@ cv::Mat process_result(cv::Mat &m1, const vitis::ai::FaceDetectResult &result,
         diff = cv::countNonZero(result_cmp);
         // LOG(INFO) << diff; //recent
         old_image = croppedFaceImage.clone();
-        if(diff > 1000){
+        if(diff > 3000){
           bool check = cv::imwrite(path,croppedFaceImage);
           count_num++;
         }

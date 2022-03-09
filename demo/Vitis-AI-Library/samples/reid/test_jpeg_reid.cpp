@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
   
   std::string filename_2 = argv[2];
   std::string base_filename_2 = filename_2.substr(filename_2.find_last_of("/\\") + 1);
-  std::string::size_type const p2(base_filename_2. find_last_of('.'));
+  std::string::size_type const p2(base_filename_2. find_first_of('.'));
   std::string file_without_extension_2 = base_filename_2. substr(0, p2);
 
   std::string filename_3 = argv[3];
@@ -119,7 +119,7 @@ int main(int argc, char* argv[]) {
     Mat featy = det->run(imgy).feat;
     double dismat = cosine_distance(featx, featy);
     // printf("dismat : %.3lf \n", dismat); //recent
-    if(dismat < 0.1){
+    if(dismat < 0.05){
       // printf("dismat : %.3lf \n", dismat); //recent
       cout << file_without_extension_2 << "," << file_without_extension_3 << endl;
       std::string input = file_without_extension_2 + "," + file_without_extension_3;
@@ -134,7 +134,7 @@ int main(int argc, char* argv[]) {
     else {
       std::string input2 = file_without_extension_2+ ",not," + file_without_extension_3;
       std::ofstream outfile2;
-      outfile2.open("/workspace/demo/Vitis-AI-Library/output/output_rem.txt", std::ios_base::app); // append instead of overwrite
+      // outfile2.open("/workspace/demo/Vitis-AI-Library/output/output_rem.txt", std::ios_base::app); // append instead of overwrite
       outfile2 << input2 << endl;
     }
   }
