@@ -97,11 +97,11 @@ bash -x build.sh
 
 # Run person reidentification demo via CLI using following commads
 ```bash
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Gate.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Hall_entry.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Room_entry.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Room_exit.mp4 &
-./facedetect.sh /workspace/demo/Vitis-AI-Library/input/Hall_exit.mp4
+./run.sh /workspace/demo/Vitis-AI-Library/input/Gate.mp4 &
+./run.sh /workspace/demo/Vitis-AI-Library/input/Hall_entry.mp4 &
+./run.sh /workspace/demo/Vitis-AI-Library/input/Room_entry.mp4 &
+./run.sh /workspace/demo/Vitis-AI-Library/input/Room_exit.mp4 &
+./run.sh /workspace/demo/Vitis-AI-Library/input/Hall_exit.mp4
 ```
 
 # Results via CLI
