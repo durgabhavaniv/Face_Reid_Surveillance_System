@@ -11,9 +11,6 @@ Near Real-Time Face-reIdentification Surveillance System Pipeline
  - [Install Docker](docs/install_docker/README.md) - if Docker not installed on your machine yet
  - [Ensure your linux user is in the group docker](https://docs.docker.com/install/linux/linux-postinstall/)
 
-# Install JAVA 11
- - [Install openjdk 11](https://openjdk.java.net/projects/jdk/11/)
-
 # Download vitis-ai docker
 ```
 docker pull xilinx/vitis-ai:1.4.1.978 
@@ -106,41 +103,6 @@ bash -x build.sh
 # Results via CLI
  - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output this directory givens the deetcted faces results.
  - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output/output.txt gives results of tracking of person faces with respect to camera number and time.
-
-# Run person reidentification demo with frontend application and neo4j
-```bash
-./start_application.sh
-```
-
-## Page1 : video upload and video connections
-
-<div align="center">
-  <img width="100%" height="100%" src="demo/images/image1.png">
-</div>
-
-<div align="center">
-  <img width="100%" height="100%" src="demo/images/image2.png">
-</div>
-
-## Page2 : input videos validation
-
-<div align="center">
-  <img width="100%" height="100%" src="demo/images/image3.png">
-</div>
-
-<div align="center">
-  <img width="100%" height="100%" src="demo/images/image4.png">
-</div>
-
-## Page3 : search queries for processed output
-
-<div align="center">
-  <img width="100%" height="100%" src="demo/images/image5.png">
-</div>
-
-<div align="center">
-  <img width="100%" height="100%" src="demo/images/image6.png">
-</div>
 
 # System requirements
  - os version - Ubuntu 20.04 LTS
