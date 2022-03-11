@@ -27,8 +27,7 @@ cd Face_Reid_Surveillance_System
 ```
 
 # VCK5000 setup 
- - Download file from, https://www.xilinx.com/member/vck5000.html#vitis, and follow below commads
- - Download below files:
+ - Download below files from, https://www.xilinx.com/member/vck5000.html#vitis, and follow below commads
    - xrt_202020.2.9.317_20.04-amd64-xrt.deb
    - xilinx-vck5000-es1-gen3x16-platform-2-1_all.deb.tar.gz
    - xilinx-vck5000-es1-gen3x16-2-202020-1-dev_1-3123623_all.deb

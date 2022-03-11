@@ -52,7 +52,7 @@ public class CommandExecuter {
     }
 
     public String callVideoPipeline(String videoName){
-        String output = processCommand("/home/durga/jaggu/neo4j/hackster/processVideo.sh "+videoName);
+        String output = processCommand("/home/durga/Face_Reid_Surveillance_System/hackster/processVideo.sh "+videoName);
         return output;
     }
 

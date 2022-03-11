@@ -58,33 +58,31 @@ public class AppController {
     }
 
     @GetMapping("/deleteAll")
-    public void deleteAllNodes(){ neo4jService.deleteAllData();}
+    public void deleteAllNodes() {
+        neo4jService.deleteAllData();
+    }
 
     @GetMapping("/processVideos")
-    public String addAllPerson(){
+    public String addAllPerson() {
         personUtil.deleteOldFileIfExists();
         List<NodeData> dataList = neo4jService.getNodes();
-        dataList.parallelStream().forEach(nodeData ->{
+        dataList.parallelStream().forEach(nodeData -> {
             CompletableFuture<String> future
                     = CompletableFuture.supplyAsync(() -> commandExecuter
-                    .callVideoPipeline(nodeData.getVideoName()+"."+nodeData.getFileExtension()));
-            try {
-                future.get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-        } );
+                    .callVideoPipeline(nodeData.getVideoName() + "." + nodeData.getFileExtension()));
+
+            future.join();
+            log.info(" execution details : " + future.isDone());
+        });
         List<Person> personList = personUtil.processCSVOutputFile();
         Map<String, List<Person>> personMap = new HashMap<>();
-        for(Person person : personList){
-            if(!personMap.containsKey(person.getName())){
+        for (Person person : personList) {
+            if (!personMap.containsKey(person.getName())) {
                 personMap.put(person.getName(), new ArrayList<>());
             }
             personMap.get(person.getName()).add(person);
         }
-        personUtil.updatePersonDateTime(personMap,dataList)
+        personUtil.updatePersonDateTime(personMap, dataList)
                 .stream()
                 .forEach(person -> neo4jService.addPerson(person));
         return "Processing is done and ready for search";
