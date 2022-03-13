@@ -108,6 +108,8 @@ bash -x build.sh
  - ~/Face_Reid_Surveillance_System/demo/Vitis-AI-Library/output/output.txt gives results of tracking of person faces with respect to camera number and time.
 
 # Run person reidentification demo with frontend application and neo4j
+ - Edit 'Face_Reid_Surveillance_System/blob/master/hackster/src/main/resources/application.properties' file, by modifing directory path based on your system. (Ex: \home\durga\Face_Reid_Surveillance_System to \your_directory_path\Face_Reid_Surveillance_System)
+ 
 ```bash
 ./start_application.sh
 ```
