@@ -14,4 +14,6 @@ public class ApplicationProperties {
     private String outDir;
     private String dockerInputFilePath;
     private String dockerOutputFilePath;
+    private String dockerOutputPath;
+    private String projectDir;
 }

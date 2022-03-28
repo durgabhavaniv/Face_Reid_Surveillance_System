@@ -21,6 +21,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.apache.commons.io.FileUtils;
+
 @Slf4j
 @Service
 public class PersonUtil {
@@ -99,9 +101,11 @@ public class PersonUtil {
     }
 
     public void deleteOldFileIfExists(){
-        File file = new File(properties.getDockerOutputFilePath());
-        if(file.exists()) {
-            file.delete();
+        File file = new File(properties.getDockerOutputPath());
+        try {
+            FileUtils.cleanDirectory(file);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
