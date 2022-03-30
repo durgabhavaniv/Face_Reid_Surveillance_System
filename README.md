@@ -8,7 +8,7 @@ Near Real-Time Face-reIdentification Surveillance System Pipeline
 
 
 # Install latest version of docker
- - [Install Docker](docs/install_docker/README.md) - if Docker not installed on your machine yet
+ - [Install Docker](https://docs.docker.com/engine/install/) - if Docker not installed on your machine yet
  - [Ensure your linux user is in the group docker](https://docs.docker.com/install/linux/linux-postinstall/)
 
 # Install JAVA 11
